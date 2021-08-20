@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Hàm số</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-6 py-2">
+            <form>
+                <div class="form-group">
+                    <h3>Bài 1: Quản lý Tuyển sinh</h3>
+                    <div class="form-group">
+                        <label for="inputExamBoard" class="text-info">Nhập điểm chuẩn hội đồng thi</label>
+                        <input type="number" class="form-control" id="inputExamBoard">
+                    </div>
+                </div>
+                <div class="py-2">
+                    <h5>Chọn điểm ưu tiên</h5>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="inputZone" class="text-info">Theo khu vực</label>
+                            <select class="form-control" id="inputZone">
+                                <option>Chọn khu vực</option>
+                                <option value="0">X - không phải khu vực ưu tiên</option>
+                                <option value="0.5">A</option>
+                                <option value="1">B</option>
+                                <option value="2">C</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="inputCandidate" class="text-info">Theo đối tượng</label>
+                            <select class="form-control" id="inputCandidate">
+                                <option>Chọn đối tượng</option>
+                                <option value="0">0 - không phải đối tượng ưu tiên</option>
+                                <option value="2.5">1</option>
+                                <option value="1.5">2</option>
+                                <option value="1">3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <h5>Nhập điểm thi</h5>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="inputSubject1" class="text-info">Môn 1</label>
+                            <input type="number" class="form-control" id="inputSubject1">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputSubject2" class="text-info">Môn 2</label>
+                            <input type="number" class="form-control" id="inputSubject2">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputSubject3" class="text-info">Môn 3</label>
+                            <input type="number" class="form-control" id="inputSubject3">
+                        </div>
+                    </div>
+                </div>
+                <button id="btnResult" type="button" class="btn btn-info py-2 col-12">Kết quả</button>
+                <p class="alert alert-info my-2" id="txtResult"></p>
+            </form>
+        </div>
+
+        <div class="col-6 py-5">
+            <form>
+                <div class="form-group">
+                    <h3>Bài 2: Tính tiền điện</h3>
+                    <label for="inputClient" class="text-info">Nhập họ và tên khách hàng</label>
+                    <input type="text" class="form-control" id="inputClient">
+                </div>
+                <div class="form-group">
+                    <label for="inputKW" class="text-info">Nhập số kW</label>
+                    <input type="number" class="form-control" id="inputKW">
+                </div>
+                <button id="btnCheck" type="button" class="btn btn-info col-12">Tính</button>
+            </form>
+            <p class="alert alert-info my-2" id="txtCheck"></p>
+        </div>
+
+        <div class="col-6 py-5">
+            <form>
+                <div class="form-group">
+                    <h3>Bài 3: Tính thuế thu nhập cá nhân</h3>
+                    <label for="inputName" class="text-info">Nhập họ và tên</label>
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="inputIncome" class="text-info">Tổng thu nhập</label>
+                        <input type="number" class="form-control" id="inputIncome">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="inputPeople" class="text-info">Số người phụ thuộc</label>
+                        <input type="number" class="form-control" id="inputPeople">
+                    </div>
+                </div>
+                <button id="btnCalc" type="button" class="btn btn-info col-12">Tính</button>
+            </form>
+            <p class="alert alert-info my-2" id="txtCalc"></p>
+        </div>
+
+        <div class="col-6 py-5">
+            <form>
+                <div class="form-group">
+                    <h3>Bài 4: Tính tiền cáp</h3>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="inputType" class="text-info" onchange="chooseType()">Loại khách hàng</label>
+                            <select class="form-control" id="inputType">
+                                <option>Loại KH</option>
+                                <option value="citizen">Nhà dân</option>
+                                <option value="company">Doanh nghiệp</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputClientID" class="text-info">Mã khách hàng</label>
+                            <input type="text" class="form-control" id="inputClientID">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputChanel" class="text-info">Số kênh cao cấp</label>
+                            <input type="number" class="form-control" id="inputPremiumChannel">
+                        </div>
+                        <div class="form-group col-4" id="change">
+                            <label for="inputChanel" class="text-info">Số kết nối</label>
+                            <input type="number" class="form-control" id="inputChannel">
+                        </div>
+                    </div>
+                    
+                
+                    <button id="btnCalcCab" type="button" class="btn btn-info col-12">Tính tiền cáp</button>
+                    <p class="alert alert-info my-2" id="txtCalcCab"></p>
+                </div>
+            </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="./JS/bai1.js"></script>
+    <script src="./JS/bai2.js"></script>
+    <script src="./JS/bai3.js"></script>
+    <script src="./JS/bai4.js"></script>
+</body>
+
+</html>
