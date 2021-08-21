@@ -25,7 +25,12 @@ function calcCabs(){
 
 document.getElementById("btnCalcCab").onclick = calcCabs;
 
-function chooseType(){
-    var numberChannel = document.getElementById("company").value;
-    document.getElementById("change").innerHTML = numberChannel;
+document.getElementById("inputType").onchange = function (e) {
+    var value = e.target.value;
+    if (value === 'company') {
+        document.getElementById("change").style.display = 'block'
+    }else{
+        document.getElementById("change").style.display = 'none'
+
+    }
 }
